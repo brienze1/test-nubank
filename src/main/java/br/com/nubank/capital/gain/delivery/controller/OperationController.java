@@ -33,18 +33,19 @@ public class OperationController {
     private ObjectMapper mapper = new ObjectMapper()
             .configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true)
             .configure(DeserializationFeature.READ_ENUMS_USING_TO_STRING, true);
-
+    private OperationParse operationParse = OperationParse.getInstance();
     private CalculateTaxUseCase calculateTaxUseCase = CalculateTaxUseCase.getInstance();
+    private TaxParse taxParse = TaxParse.getInstance();
 
     public ArrayList<TaxDto> execute(String operationString) {
         try{
-            ArrayList<OperationDto> operationsDto = mapper.readValue(operationString, new TypeReference<>(){});
+            ArrayList<OperationDto> operationDtoList = mapper.readValue(operationString, new TypeReference<>(){});
 
-            ArrayList<Operation> operations = OperationParse.toOperationList(operationsDto);
+            ArrayList<Operation> operationList = operationParse.toOperationList(operationDtoList);
 
-            ArrayList<Tax> taxes = calculateTaxUseCase.calculateTax(new OperationSet(operations));
+            ArrayList<Tax> taxList = calculateTaxUseCase.calculateTax(new OperationSet(operationList));
 
-            return TaxParse.toTaxDtos(taxes);
+            return taxParse.toTaxDtoList(taxList);
         } catch (Exception ex) {
             throw new OperationException(ex);
         }

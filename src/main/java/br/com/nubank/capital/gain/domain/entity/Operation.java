@@ -22,4 +22,15 @@ public class Operation {
         this.quantity = quantity;
     }
 
+    public OperationType getOperationType() {
+        return operationType;
+    }
+
+    public BigDecimal getUnitCost() {
+        return unitCost;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
 }

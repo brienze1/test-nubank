@@ -8,12 +8,32 @@ import java.util.ArrayList;
 
 public class TaxParse {
 
+    private static TaxParse instance;
+
     private TaxParse() {}
 
-    public static ArrayList<TaxDto> toTaxDtos(ArrayList<Tax> taxes) {
-        Validators.validateNotNull(taxes, "Taxes cannot be null");
+    public static TaxParse getInstance() {
+        if(instance == null) {
+            instance = new TaxParse();
+        }
+        return instance;
+    }
 
+    public ArrayList<TaxDto> toTaxDtoList(ArrayList<Tax> taxList) {
+        ArrayList<TaxDto> taxDtoList = new ArrayList<>();
 
-        return null;
+        if (taxList != null) {
+            for (Tax tax : taxList) {
+                taxDtoList.add(toTaxDto(tax));
+            }
+        }
+
+        return taxDtoList;
+    }
+
+    private TaxDto toTaxDto(Tax tax) {
+        Validators.validateNotNull(tax, "Tax dto cannot be null");
+
+        return new TaxDto(tax.getTax());
     }
 }

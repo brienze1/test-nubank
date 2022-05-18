@@ -16,6 +16,14 @@ public class OperationDto {
     @JsonProperty("quantity")
     private Long quantity;
 
+    public OperationDto() {}
+
+    public OperationDto(OperationType operationType, BigDecimal unitCost, Long quantity) {
+        this.operationType = operationType;
+        this.unitCost = unitCost;
+        this.quantity = quantity;
+    }
+
     public OperationType getOperationType() {
         return operationType;
     }

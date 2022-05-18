@@ -9,10 +9,11 @@ public class Application {
 	private static final OperationController operationController = OperationController.getInstance();
 
 	public static void main(String[] args) {
-		String line;
 		Scanner stdin = new Scanner(System.in);
+		String line;
 		while(stdin.hasNextLine() && !( line = stdin.nextLine() ).equals( "" ))
 		{
+			//TODO threads?
 			System.out.println(operationController.execute(line));
 		}
 		stdin.close();

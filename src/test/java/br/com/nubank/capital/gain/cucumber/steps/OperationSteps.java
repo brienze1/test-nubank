@@ -1,5 +1,6 @@
 package br.com.nubank.capital.gain.cucumber.steps;
 
+import br.com.nubank.capital.gain.Application;
 import br.com.nubank.capital.gain.delivery.controller.OperationController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -14,21 +15,26 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class OperationSteps {
 
     private static final String NEW_LINE = "\n";
 
+    private final InputStream originalIn = System.in;
     private final ObjectMapper mapper = new ObjectMapper()
             .configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true)
             .configure(DeserializationFeature.READ_ENUMS_USING_TO_STRING, true);
 
+    private final Scanner stdin = new Scanner(System.in);
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -47,6 +53,7 @@ public class OperationSteps {
 
     @After
     public void finish() {
+        System.setIn(originalIn);
         System.setOut(originalOut);
         System.setErr(originalErr);
     }
@@ -64,7 +71,10 @@ public class OperationSteps {
     @When("I type in the command lines")
     public void iTypeInTheCommandLines() {
         for (String operation : operations) {
-            operationController.execute(operation);
+            ByteArrayInputStream inContent = new ByteArrayInputStream(operation.getBytes());
+            System.setIn(inContent);
+
+            Application.main(new String[0]);
         }
     }
 

@@ -8,14 +8,22 @@ import java.util.ArrayList;
 
 public class OperationParse {
 
-    private OperationParse() {
+    private static OperationParse instance;
+
+    private OperationParse() {}
+
+    public static OperationParse getInstance() {
+        if(instance == null) {
+            instance = new OperationParse();
+        }
+        return instance;
     }
 
-    public static ArrayList<Operation> toOperationList(ArrayList<OperationDto> operationDtos) {
+    public ArrayList<Operation> toOperationList(ArrayList<OperationDto> operationDtoList) {
         ArrayList<Operation> operations = new ArrayList<>();
 
-        if (operationDtos != null) {
-            for (OperationDto operationDto : operationDtos) {
+        if (operationDtoList != null) {
+            for (OperationDto operationDto : operationDtoList) {
                 operations.add(toOperation(operationDto));
             }
         }
@@ -23,7 +31,7 @@ public class OperationParse {
         return operations;
     }
 
-    private static Operation toOperation(OperationDto operationDto) {
+    private Operation toOperation(OperationDto operationDto) {
         Validators.validateNotNull(operationDto, "Operation dto cannot be null");
 
         return new Operation(operationDto.getOperationType(), operationDto.getUnitCost(), operationDto.getQuantity());
