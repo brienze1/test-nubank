@@ -1,11 +1,15 @@
 package br.com.nubank.capital.gain.cucumber;
 
-import org.junit.platform.suite.api.SelectClasspathResource;
-import org.junit.platform.suite.api.Suite;
 
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
-@Suite
-@SelectClasspathResource("features")
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = "src/test/resources/features",
+        glue = {"br.com.nubank.capital.gain.cucumber.steps"},
+        plugin = "pretty")
 public class RunCucumberTest {
 
 }
