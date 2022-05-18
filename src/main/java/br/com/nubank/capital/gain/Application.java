@@ -13,7 +13,7 @@ public class Application {
 		Scanner stdin = new Scanner(System.in);
 		while(stdin.hasNextLine() && !( line = stdin.nextLine() ).equals( "" ))
 		{
-			operationController.execute(line);
+			System.out.println(operationController.execute(line));
 		}
 		stdin.close();
 	}

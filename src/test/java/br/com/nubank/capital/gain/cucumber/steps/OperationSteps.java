@@ -70,7 +70,9 @@ public class OperationSteps {
 
     @Then("the stdout should return the following values:")
     public void theStdoutShouldReturnTheFollowingValues(List<String> expectedResultList) {
-        List<String> resultList = Arrays.stream(outContent.toString().replace("\r", "").split(NEW_LINE)).collect(Collectors.toList());
+        List<String> resultList = Arrays
+                .stream(outContent.toString().replace("\r", "").split(NEW_LINE))
+                .collect(Collectors.toList());
 
         for (int i = 0; i < expectedResultList.size(); i++) {
             Assert.assertEquals(expectedResultList.get(i), resultList.get(i));
