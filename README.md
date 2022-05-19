@@ -1,3 +1,5 @@
+<div id="top"></div>
+
 # Nubank challenge
 
 1. [About the Project](#about-the-project)
@@ -6,6 +8,9 @@
     1. [Prerequisites](#prerequisites)
     2. [Installation](#installation)
     3. [Usage](#usage)
+
+
+<hr>
 
 ## About the Project
 
@@ -24,6 +29,9 @@ These were the dependencies used in tests (behaviour and unit tests):
 * [Cucumber (Java)](https://cucumber.io/docs/installation/java/)
 
 ### Roadmap
+
+<p style="text-align: right;">(<a href="#top">back to top</a>)</p>
+<hr>
 
 ## Getting Started
 
@@ -71,3 +79,5 @@ These were the dependencies used in tests (behaviour and unit tests):
       ```
 
 - To stop the application just send two empty lines in sequence
+
+<p style="text-align: right;">(<a href="#top">back to top</a>)</p>
