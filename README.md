@@ -6,12 +6,9 @@
    2. [Installation](#installation)
    3. [Usage](#usage)
 
-#about-the-project
 ## About the Project
 
-#getting-started
 ## Getting Started
-#prerequisites
 ### Prerequisites
 - Install version 11 of the JDK
     - [Manual](https://adoptium.net/?variant=openjdk11)
@@ -28,7 +25,6 @@
       echo 'export JAVA_HOME=/path/to/jdk' >> ~/.bashrc 
       ```
 
-#installation
 ### Installation
 - Run the following to install dependencies and compile the project:
     - Windows
@@ -40,7 +36,6 @@
       ./mvnw compile
       ```
 
-#usage
 ### Usage
 - Start the compiled application:
     - Windows/macOS/Linux/WSL
