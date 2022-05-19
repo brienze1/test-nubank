@@ -1,19 +1,23 @@
 # Nubank challenge
 
 1. [About the Project](#about-the-project)
+   1. [Built With](#built-with)
 2. [Getting Started](#getting-started)
    1. [Prerequisites](#prerequisites)
    2. [Installation](#installation)
    3. [Usage](#usage)
 
 ## About the Project
+### Built With
+Because the challenge asked to use 
+### Roadmap
 
 ## Getting Started
 ### Prerequisites
 - Install version 11 of the JDK
     - [Manual](https://adoptium.net/?variant=openjdk11)
     - [IntelliJ](https://www.jetbrains.com/help/idea/sdk.html#jdk)
-    - Homebrew
+    - [Homebrew](https://docs.brew.sh/Installation)
       ```bash
       brew install openjdk@11
       ```
@@ -39,7 +43,7 @@
 ### Usage
 - Start the compiled application:
     - Windows/macOS/Linux/WSL
-      ```
+      ```bash
       java -jar ./target/nubank-challenge.jar
       ```
 
