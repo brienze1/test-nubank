@@ -1,19 +1,27 @@
 # Nubank challenge
 
 1. [About the Project](#about-the-project)
-   1. [Built With](#built-with)
+    1. [Built With](#built-with)
 2. [Getting Started](#getting-started)
-   1. [Prerequisites](#prerequisites)
-   2. [Installation](#installation)
-   3. [Usage](#usage)
+    1. [Prerequisites](#prerequisites)
+    2. [Installation](#installation)
+    3. [Usage](#usage)
 
 ## About the Project
+
 ### Built With
-Because the challenge asked to use 
+
+Because the challenge asked to use the least frameworks and dependencies possible I retained myself to use dependencies
+only for testing purposes, the only dependency that was used in the actual code was `jackson-databind`, used to map
+the command string into the application contract. These were the dependencies used:
+* [Jackson Databind](https://github.com/FasterXML/jackson-databind)
+
 ### Roadmap
 
 ## Getting Started
+
 ### Prerequisites
+
 - Install version 11 of the JDK
     - [Manual](https://adoptium.net/?variant=openjdk11)
     - [IntelliJ](https://www.jetbrains.com/help/idea/sdk.html#jdk)
@@ -30,6 +38,7 @@ Because the challenge asked to use
       ```
 
 ### Installation
+
 - Run the following to install dependencies and compile the project:
     - Windows
       ```bash
@@ -41,6 +50,7 @@ Because the challenge asked to use
       ```
 
 ### Usage
+
 - Start the compiled application:
     - Windows/macOS/Linux/WSL
       ```bash
