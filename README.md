@@ -1,7 +1,19 @@
-# test-nubank
+# Nubank challenge
 
+1. [About the Project](#about-the-project)
+2. [Getting Started](#getting-started)
+   1. [Prerequisites](#prerequisites)
+   2. [Installation](#installation)
+   3. [Usage](#usage)
 
-- Install version 11 (or 13) of the JDK
+#about-the-project
+## About the Project
+
+#getting-started
+## Getting Started
+#prerequisites
+### Prerequisites
+- Install version 11 of the JDK
     - [Manual](https://adoptium.net/?variant=openjdk11)
     - [IntelliJ](https://www.jetbrains.com/help/idea/sdk.html#jdk)
     - Homebrew
@@ -16,6 +28,8 @@
       echo 'export JAVA_HOME=/path/to/jdk' >> ~/.bashrc 
       ```
 
+#installation
+### Installation
 - Run the following to install dependencies and compile the project:
     - Windows
       ```bash
@@ -26,6 +40,8 @@
       ./mvnw compile
       ```
 
+#usage
+### Usage
 - Start the compiled application:
     - Windows/macOS/Linux/WSL
       ```
