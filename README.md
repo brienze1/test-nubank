@@ -16,7 +16,8 @@
 Because the challenge asked to use the least frameworks and dependencies possible I retained myself to use dependencies
 only for testing purposes, the only dependency that was used in the actual code was `jackson-databind`, used to map
 the command string into the application contract.
-These were the dependencies used in code:
+
+This was the dependency used in code:
 
 * [Jackson Databind](https://github.com/FasterXML/jackson-databind)
 
