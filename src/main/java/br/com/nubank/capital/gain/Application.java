@@ -14,7 +14,7 @@ public class Application {
 		while(stdin.hasNextLine() && !( line = stdin.nextLine() ).equals( "" ))
 		{
 			//TODO threads?
-			System.out.println(operationController.execute(line));
+			operationController.execute(line);
 		}
 		stdin.close();
 	}

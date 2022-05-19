@@ -3,7 +3,7 @@ package br.com.nubank.capital.gain.unittests.delivery.parse;
 import br.com.nubank.capital.gain.delivery.dto.OperationDto;
 import br.com.nubank.capital.gain.delivery.parse.OperationParse;
 import br.com.nubank.capital.gain.domain.entity.Operation;
-import br.com.nubank.capital.gain.domain.enums.OperationType;
+import br.com.nubank.capital.gain.domain.entity.enums.OperationType;
 import br.com.nubank.capital.gain.domain.exception.ValidationException;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,7 +26,7 @@ public class OperationParseTest {
     @Before
     public void init() {
         operationListDto = new ArrayList<>();
-        operationListDto.add(new OperationDto(OperationType.BUY, BigDecimal.TEN, 1L));
+        operationListDto.add(new OperationDto(OperationType.BUY, BigDecimal.TEN, BigDecimal.ONE));
     }
 
     @Test

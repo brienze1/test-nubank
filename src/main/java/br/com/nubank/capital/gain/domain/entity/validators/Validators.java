@@ -1,4 +1,4 @@
-package br.com.nubank.capital.gain.domain.validators;
+package br.com.nubank.capital.gain.domain.entity.validators;
 
 import br.com.nubank.capital.gain.domain.exception.ValidationException;
 
@@ -19,6 +19,10 @@ public class Validators {
 
     public static <T extends Number> void validateGreaterThanZero(T value, String message) {
         Optional.ofNullable(value).filter(v -> v.doubleValue() > 0).orElseThrow(() -> new ValidationException(message));
+    }
+
+    public static <T extends Number> void validatePositive(T value, String message) {
+        Optional.ofNullable(value).filter(v -> v.doubleValue() >= 0).orElseThrow(() -> new ValidationException(message));
     }
 
 }

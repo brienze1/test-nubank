@@ -1,12 +1,6 @@
 package br.com.nubank.capital.gain.cucumber.steps;
 
 import br.com.nubank.capital.gain.Application;
-import br.com.nubank.capital.gain.delivery.controller.OperationController;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -22,26 +16,18 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class OperationSteps {
 
     private static final String NEW_LINE = "\n";
 
-    private final InputStream originalIn = System.in;
-    private final ObjectMapper mapper = new ObjectMapper()
-            .configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true)
-            .configure(DeserializationFeature.READ_ENUMS_USING_TO_STRING, true);
-
-    private final Scanner stdin = new Scanner(System.in);
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
     private ArrayList<String> operations;
-
-    private static final OperationController operationController = OperationController.getInstance();
 
     @Before
     public void init() {
@@ -59,12 +45,12 @@ public class OperationSteps {
     }
 
     @Given("the following operation:")
-    public void theFollowingOperation(String operationJson) throws JsonProcessingException {
+    public void theFollowingOperation(String operationJson) {
         operations.add(compactJson(operationJson));
     }
 
     @And("also the following operation:")
-    public void alsoTheFollowingOperation(String operationJson) throws JsonProcessingException {
+    public void alsoTheFollowingOperation(String operationJson) {
         operations.add(compactJson(operationJson));
     }
 
@@ -82,18 +68,18 @@ public class OperationSteps {
     public void theStdoutShouldReturnTheFollowingValues(List<String> expectedResultList) {
         List<String> resultList = Arrays
                 .stream(outContent.toString().replace("\r", "").split(NEW_LINE))
+                .map(this::compactJson)
                 .collect(Collectors.toList());
 
         for (int i = 0; i < expectedResultList.size(); i++) {
-            Assert.assertEquals(expectedResultList.get(i), resultList.get(i));
+            Assert.assertEquals(compactJson(expectedResultList.get(i)), resultList.get(i));
         }
     }
 
     ///TODO criar feature para teste de arrendondamento de decimais
 
-    private String compactJson(String json) throws JsonProcessingException {
-        JsonNode jsonNode = mapper.readValue(json, JsonNode.class);
-        return jsonNode.toString();
+    private String compactJson(String json) {
+        return json.replaceAll(NEW_LINE, "").replaceAll(" ", "");
     }
 
 }

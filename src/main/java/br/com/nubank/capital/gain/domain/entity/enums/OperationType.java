@@ -1,11 +1,11 @@
-package br.com.nubank.capital.gain.domain.enums;
+package br.com.nubank.capital.gain.domain.entity.enums;
 
 public enum OperationType {
 
     BUY("buy"),
     SELL("sell");
 
-    private String value;
+    private final String value;
 
     OperationType(String value) {
         this.value = value;

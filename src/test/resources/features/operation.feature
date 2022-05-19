@@ -104,15 +104,15 @@ Feature: Operation
     Then the stdout should return the following values:
       | [{"tax":0.00}, {"tax":0.00}, {"tax":0.00}, {"tax":0.00}, {"tax":3000.00}, {"tax":0.00}, {"tax":0.00}, {"tax":3700.00}, {"tax":0.00}] |
 
-  Scenario: Calculate tax after sell of a part of the stock bought in the first operation
+  Scenario: Return two taxes selling everything
     Given the following operation:
       """
         [{"operation":"buy", "unit-cost":10.00, "quantity": 10000},
-        {"operation":"sell", "unit-cost":50.00, "quantity": 5000},
+        {"operation":"sell", "unit-cost":50.00, "quantity": 10000},
         {"operation":"buy", "unit-cost":20.00, "quantity": 10000},
-        {"operation":"sell", "unit-cost":50.00, "quantity": 15000}]
+        {"operation":"sell", "unit-cost":50.00, "quantity": 10000}]
       """
     When I type in the command lines
     Then the stdout should return the following values:
-      | [{"tax":0.00},{"tax":30000.00},{"tax":0.00},{"tax":100000.00}] |
+      | [{"tax":0.00},{"tax":80000.00},{"tax":0.00},{"tax":60000.00}] |
 

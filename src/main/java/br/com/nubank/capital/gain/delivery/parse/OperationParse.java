@@ -2,7 +2,7 @@ package br.com.nubank.capital.gain.delivery.parse;
 
 import br.com.nubank.capital.gain.delivery.dto.OperationDto;
 import br.com.nubank.capital.gain.domain.entity.Operation;
-import br.com.nubank.capital.gain.domain.validators.Validators;
+import br.com.nubank.capital.gain.domain.entity.validators.Validators;
 
 import java.util.ArrayList;
 

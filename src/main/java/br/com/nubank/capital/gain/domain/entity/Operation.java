@@ -1,7 +1,7 @@
 package br.com.nubank.capital.gain.domain.entity;
 
-import br.com.nubank.capital.gain.domain.enums.OperationType;
-import br.com.nubank.capital.gain.domain.validators.Validators;
+import br.com.nubank.capital.gain.domain.entity.enums.OperationType;
+import br.com.nubank.capital.gain.domain.entity.validators.Validators;
 
 import java.math.BigDecimal;
 
@@ -9,9 +9,9 @@ public class Operation {
 
     private OperationType operationType;
     private BigDecimal unitCost;
-    private Long quantity;
+    private BigDecimal quantity;
 
-    public Operation(OperationType operationType, BigDecimal unitCost, Long quantity) {
+    public Operation(OperationType operationType, BigDecimal unitCost, BigDecimal quantity) {
         Validators.validateNotNull(operationType, "Operation type cannot be null");
         this.operationType = operationType;
 
@@ -30,7 +30,15 @@ public class Operation {
         return unitCost;
     }
 
-    public Long getQuantity() {
+    public BigDecimal getQuantity() {
         return quantity;
+    }
+
+    public BigDecimal getOperationValue() {
+        return quantity.multiply(unitCost);
+    }
+
+    public boolean valueIsGreaterThan(BigDecimal value) {
+        return getOperationValue().compareTo(value) > 0;
     }
 }
