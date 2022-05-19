@@ -56,12 +56,16 @@ public class OperationSteps {
 
     @When("I type in the command lines")
     public void iTypeInTheCommandLines() {
-        for (String operation : operations) {
-            ByteArrayInputStream inContent = new ByteArrayInputStream(operation.getBytes());
-            System.setIn(inContent);
+        StringBuilder operationCommand = new StringBuilder();
 
-            Application.main(new String[0]);
+        for (String operation : operations) {
+            operationCommand.append(operation.concat(NEW_LINE));
         }
+
+        ByteArrayInputStream inContent = new ByteArrayInputStream(operationCommand.toString().getBytes());
+        System.setIn(inContent);
+
+        Application.main(new String[0]);
     }
 
     @Then("the stdout should return the following values:")
