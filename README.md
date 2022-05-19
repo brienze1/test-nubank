@@ -9,20 +9,19 @@
     2. [Installation](#installation)
     3. [Usage](#usage)
 
-
-<hr>
-
 ## About the Project
 
 ### Built With
 
 Because the challenge asked to use the least frameworks and dependencies possible I retained myself to use dependencies
 only for testing purposes, the only dependency that was used in the actual code was `jackson-databind`, used to map
-the command string into the application contract. 
+the command string into the application contract.
 These were the dependencies used in code:
+
 * [Jackson Databind](https://github.com/FasterXML/jackson-databind)
 
 These were the dependencies used in tests (behaviour and unit tests):
+
 * [Junit4](https://github.com/junit-team/junit4)
 * [Mockito](https://github.com/mockito/mockito)
 * [Cucumber (Junit)](https://cucumber.io/docs/cucumber/api/#junit)
@@ -30,8 +29,7 @@ These were the dependencies used in tests (behaviour and unit tests):
 
 ### Roadmap
 
-<p style="text-align: right;">(<a href="#top">back to top</a>)</p>
-<hr>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Getting Started
 
@@ -80,4 +78,4 @@ These were the dependencies used in tests (behaviour and unit tests):
 
 - To stop the application just send two empty lines in sequence
 
-<p style="text-align: right;">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
