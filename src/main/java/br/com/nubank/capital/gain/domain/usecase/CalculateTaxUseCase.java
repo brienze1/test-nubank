@@ -3,7 +3,7 @@ package br.com.nubank.capital.gain.domain.usecase;
 import br.com.nubank.capital.gain.domain.adapter.SendTaxServiceAdapter;
 import br.com.nubank.capital.gain.domain.entity.OperationSet;
 import br.com.nubank.capital.gain.domain.entity.Tax;
-import br.com.nubank.capital.gain.integration.stdoutservice.TaxStdoutService;
+import br.com.nubank.capital.gain.integration.stdout.TaxStdoutService;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

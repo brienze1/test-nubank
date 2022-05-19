@@ -1,12 +1,12 @@
-package br.com.nubank.capital.gain.integration.stdoutservice;
+package br.com.nubank.capital.gain.integration.stdout;
 
 import br.com.nubank.capital.gain.domain.adapter.SendTaxServiceAdapter;
 import br.com.nubank.capital.gain.domain.entity.Tax;
+import br.com.nubank.capital.gain.integration.dto.TaxDto;
 import br.com.nubank.capital.gain.integration.exception.StdoutException;
+import br.com.nubank.capital.gain.integration.parse.TaxParse;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.util.ArrayList;
 
@@ -24,14 +24,15 @@ public class TaxStdoutService implements SendTaxServiceAdapter {
         return instance;
     }
 
-    private ObjectMapper mapper = new ObjectMapper()
-            .configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING, true)
-            .configure(DeserializationFeature.READ_ENUMS_USING_TO_STRING, true);
+    private ObjectMapper mapper = new ObjectMapper();
+    private TaxParse taxParse = TaxParse.getInstance();
 
     @Override
     public void send(ArrayList<Tax> taxList) {
+        ArrayList<TaxDto> taxDtoList = taxParse.toTaxDtoList(taxList);
+
         try {
-            System.out.println(mapper.writeValueAsString(taxList));
+            System.out.println(mapper.writeValueAsString(taxDtoList));
         } catch (JsonProcessingException ex) {
             throw new StdoutException(ex);
         }
