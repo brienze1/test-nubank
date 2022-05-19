@@ -18,10 +18,10 @@ These were the dependencies used in code:
 * [Jackson Databind](https://github.com/FasterXML/jackson-databind)
 
 These were the dependencies used in tests (behaviour and unit tests):
-* [Junit4]()
-* [Mockito]()
-* [Cucumber (Junit)]()
-* [Cucumber (Java)]()
+* [Junit4](https://github.com/junit-team/junit4)
+* [Mockito](https://github.com/mockito/mockito)
+* [Cucumber (Junit)](https://cucumber.io/docs/cucumber/api/#junit)
+* [Cucumber (Java)](https://cucumber.io/docs/installation/java/)
 
 ### Roadmap
 
