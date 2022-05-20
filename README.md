@@ -3,13 +3,77 @@
 # Nubank challenge
 
 1. [About the Project](#about-the-project)
+    1. [Input](#input)
+    1. [Output](#output)
     1. [Built With](#built-with)
 2. [Getting Started](#getting-started)
     1. [Prerequisites](#prerequisites)
     2. [Installation](#installation)
     3. [Usage](#usage)
+    4. [Testing](#testing)
 
 ## About the Project
+
+The objective of this challenge is to implement a command-line program (CLI) that calculates the tax to be paid on
+profits or losses from operations in the financial stock market.
+
+### Input
+
+The program should receive lists, one per line, of stock market operations in json format through standard input (
+stdin ). Each operation in the list must contain the following fields:
+
+- operation: Whether the operation is a buy (buy) or sell (sell) operation
+- unit-cost: Unit price of the share in a currency to two decimal places
+- quantity: Number of shares traded
+
+Example of how the line should look like:
+
+```aidl
+[{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, "quantity": 5000}]
+```
+
+The operations will be in the order in which they occurred, that is, the second operation in the list happened after the
+first one, and so on.
+Each line is an independent simulation, your program should not keep the state obtained in one line for the others.
+The last line of input will be an empty line.
+
+### Output
+
+For each line of the entry, the program must return a list containing the tax paid for each received operation. The
+elements of this list must be encoded in json format and the output must be returned via standard output ( stdout ). The
+return consists of the following field:
+
+- tax: The amount of tax paid on an operation
+
+Example of how the line should look like:
+
+```aidl
+[{"tax":0.00}, {"tax":10000.00}]
+```
+
+The list returned by the program must be the same size as the list of operations processed in the input. For example, if
+three operations were processed (buy, buy, sell), the program's return should be a list with three values that
+represent the tax paid on each operation.
+
+### Rules
+
+The program must handle two types of operations ( buy and sell ) and it must follow the following rules:
+
+* The tax percentage paid is 20% on the profit obtained in the operation. That is, the tax will be paid when there is a
+  sale transaction whose price is higher than the weighted average purchase price.
+* To determine whether the trade resulted in a profit or loss, you can calculate the weighted average price, so when you
+  buy shares you must recalculate the weighted average price using this formula: `new-weighted-average = ((
+  current-amount-of-stocks * weighted-average-current) + (amount-of-stocks * purchase-value)) / (
+  amount-of-stocks-current + quantity-of-stocks-purchased)`. For example, if you bought 10 shares for R$20.00, sold 5,
+  then bought another 5 for R$10.00, the weighted average is  `((5 x 20.00) + (5 x 10.00)) / (5 + 5) = 15.00`
+* You must use past loss to deduct multiple future profits until all losses are deducted.
+* Losses happen when you sell shares at less than the weighted average purchase price. In this case, no tax must be paid
+  and you must subtract the loss from subsequent profits before calculating the tax.
+* You do not pay any tax if the total value of the transaction `(unit cost of the share x quantity)` is less than or
+  equal to BRL 20000.00. Use the total amount of the transaction and not the profit made to determine whether tax
+  should be paid. And don't forget to deduct the loss from the following profits.
+* No tax is paid on purchase transactions.
+* No trade will sell more shares than you have at that time.
 
 ### Built With
 
@@ -17,18 +81,32 @@ Because the challenge asked to use the least frameworks and dependencies possibl
 only for testing purposes, the only dependency that was used in the actual code was `jackson-databind`, used to map
 the command string into the application contract.
 
-This was the dependency used in code:
+#### Dependencies
 
 * [Jackson Databind](https://github.com/FasterXML/jackson-databind)
 
-These were the dependencies used in tests (behaviour and unit tests):
+#### Test Dependencies
 
-* [Junit4](https://github.com/junit-team/junit4)
-* [Mockito](https://github.com/mockito/mockito)
-* [Cucumber (Junit)](https://cucumber.io/docs/cucumber/api/#junit)
-* [Cucumber (Java)](https://cucumber.io/docs/installation/java/)
+* [Junit4](https://github.com/junit-team/junit4): Used to run unit tests
+* [Mockito](https://github.com/mockito/mockito): Used to generate mocks used in unit tests
+* [Cucumber (Junit)](https://cucumber.io/docs/cucumber/api/#junit): Used to integrate cucumber with Junit4
+* [Cucumber (Java)](https://cucumber.io/docs/installation/java/): Used to integrate Gherkin with Java
+
+#### Plugins
+
+* [Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/): Used to compile the app
+* [Maven Assembly Plugin](https://maven.apache.org/plugins/maven-assembly-plugin/): Used to generate an executable jar
+* [Maven Wrapper](https://maven.apache.org/wrapper/): Used to run mvn commands
 
 ### Roadmap
+
+* [x] Implement Behaviour tests (BDD) with cucumber
+* [x] Implement Unit tests 
+* [x] Implement application logic 
+* [x] Add maven wrapper to run mvn commands locally 
+* [ ] Create Dockerfile 
+* [ ] Create Docker compose 
+* [ ] Document everything in Readme
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -78,5 +156,17 @@ These were the dependencies used in tests (behaviour and unit tests):
       ```
 
 - To stop the application just send two empty lines in sequence
+
+### Testing 
+
+- To run the tests just type the command bellow in terminal:
+    - Windows
+      ```bash
+      mvnw.bat test
+      ```
+    - macOS/Linux/WSL
+      ```bash
+      ./mvnw test
+      ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
