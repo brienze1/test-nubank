@@ -28,7 +28,7 @@ stdin ). Each operation in the list must contain the following fields:
 
 Example of how the line should look like:
 
-```aidl
+```
 [{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, "quantity": 5000}]
 ```
 
@@ -47,7 +47,7 @@ return consists of the following field:
 
 Example of how the line should look like:
 
-```aidl
+```
 [{"tax":0.00}, {"tax":10000.00}]
 ```
 
