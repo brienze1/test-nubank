@@ -10,6 +10,8 @@
     1. [Prerequisites](#prerequisites)
     2. [Installation](#installation)
     3. [Usage](#usage)
+       1. [Manual Input](#manual-input)
+       1. [File Input](#file-input)
     4. [Testing](#testing)
 
 ## About the Project
