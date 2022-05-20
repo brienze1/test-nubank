@@ -16,7 +16,7 @@ public class Application {
 			try{
 				operationController.execute(line);
 			} catch (Exception ex){
-				System.err.println(ex.getMessage().concat(". ").concat(ex.getCause().getMessage()));
+				System.out.println(ex.getMessage().concat(". ").concat(ex.getCause().getMessage()));
 			}
 		}
 		stdin.close();

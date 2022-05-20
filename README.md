@@ -4,14 +4,20 @@
 
 1. [About the Project](#about-the-project)
     1. [Input](#input)
-    1. [Output](#output)
-    1. [Built With](#built-with)
+    2. [Output](#output)
+    3. [Rules](#rules)
+    4. [Built With](#built-with)
+       1. [Dependencies](#dependencies)
+       2. [Test Dependencies](#test-dependencies)
+       3. [Plugins](#plugins)
+    5. [Roadmap](#roadmap)
 2. [Getting Started](#getting-started)
     1. [Prerequisites](#prerequisites)
     2. [Installation](#installation)
     3. [Usage](#usage)
        1. [Manual Input](#manual-input)
-       1. [File Input](#file-input)
+       2. [File Input](#file-input)
+       3. [Docker Input](#docker-input)
     4. [Testing](#testing)
 
 ## About the Project
@@ -131,6 +137,9 @@ the command string into the application contract.
       echo 'export JAVA_HOME=/path/to/jdk' >> ~/.bashrc 
       ```
 
+- Install Docker (Optional)
+    - [Windows/macOS/Linux/WSL](https://www.docker.com/get-started/)
+
 ### Installation
 
 - Run the following to install dependencies and compile the project:
@@ -167,7 +176,26 @@ the command string into the application contract.
       ```bash
       java -jar ./target/nubank-challenge.jar < ./src/main/resources/input.txt
       ```
+
+#### Docker Input
+- In case you want to use a Docker container to run the application first you need to build the Docker image from Dockerfile:
+    - Windows/macOS/Linux/WSL
+      ```bash
+      docker build -t nubank-challenge .
+      ```
       
+- And then run the new created image:
+  - Windows/macOS/Linux/WSL
+    ```bash
+    docker run --rm -it nubank-challenge:latest
+    ```
+    
+- Insert the desired operations (example bellow):
+  - Windows/macOS/Linux/WSL
+    ```
+    [{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, "quantity": 5000}]
+    ```
+        
 ### Testing 
 
 - To run the tests just type the command bellow in terminal:
