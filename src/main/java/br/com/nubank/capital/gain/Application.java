@@ -13,8 +13,11 @@ public class Application {
 		String line;
 		while(stdin.hasNextLine() && !( line = stdin.nextLine() ).equals( "" ))
 		{
-			//TODO threads?
-			operationController.execute(line);
+			try{
+				operationController.execute(line);
+			} catch (Exception ex){
+				System.err.println(ex.getMessage().concat(". ").concat(ex.getCause().getMessage()));
+			}
 		}
 		stdin.close();
 	}

@@ -143,6 +143,8 @@ the command string into the application contract.
 
 ### Usage
 
+#### Manual Input
+
 - Start the compiled application:
     - Windows/macOS/Linux/WSL
       ```bash
@@ -157,6 +159,13 @@ the command string into the application contract.
 
 - To stop the application just send two empty lines in sequence
 
+#### File Input
+- Else you can run the application using an input file:
+    - Windows/macOS/Linux/WSL
+      ```bash
+      java -jar ./target/nubank-challenge.jar < ./src/main/resources/input.txt
+      ```
+      
 ### Testing 
 
 - To run the tests just type the command bellow in terminal:
