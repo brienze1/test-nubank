@@ -157,7 +157,7 @@ the command string into the application contract.
       [{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, "quantity": 5000}]
       ```
 
-- To stop the application just send two empty lines in sequence
+- To stop the application just send an empty line command
 
 #### File Input
 - Else you can run the application using an input file:
