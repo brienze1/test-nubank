@@ -7,17 +7,17 @@
     2. [Output](#output)
     3. [Rules](#rules)
     4. [Built With](#built-with)
-       1. [Dependencies](#dependencies)
-       2. [Test Dependencies](#test-dependencies)
-       3. [Plugins](#plugins)
+        1. [Dependencies](#dependencies)
+        2. [Test Dependencies](#test-dependencies)
+        3. [Plugins](#plugins)
     5. [Roadmap](#roadmap)
 2. [Getting Started](#getting-started)
     1. [Prerequisites](#prerequisites)
     2. [Installation](#installation)
     3. [Usage](#usage)
-       1. [Manual Input](#manual-input)
-       2. [File Input](#file-input)
-       3. [Docker Input](#docker-input)
+        1. [Manual Input](#manual-input)
+        2. [File Input](#file-input)
+        3. [Docker Input](#docker-input)
     4. [Testing](#testing)
 
 ## About the Project
@@ -109,11 +109,11 @@ the command string into the application contract.
 ### Roadmap
 
 * [x] Implement Behaviour tests (BDD) with cucumber
-* [x] Implement Unit tests 
-* [x] Implement application logic 
-* [x] Add maven wrapper to run mvn commands locally 
-* [ ] Create Dockerfile 
-* [ ] Create Docker compose 
+* [x] Implement Unit tests
+* [x] Implement application logic
+* [x] Add maven wrapper to run mvn commands locally
+* [ ] Create Dockerfile
+* [ ] Create Docker compose
 * [ ] Document everything in Readme
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -171,6 +171,7 @@ the command string into the application contract.
 - To stop the application just send an empty line command
 
 #### File Input
+
 - Else you can run the application using an input file:
     - Windows
       ```bash
@@ -182,25 +183,27 @@ the command string into the application contract.
       ```
 
 #### Docker Input
-- In case you want to use a Docker container to run the application first you need to build the Docker image from Dockerfile:
+
+- In case you want to use a Docker container to run the application first you need to build the Docker image from
+  Dockerfile (the first time you run this may take a few minutes to complete):
     - Windows/macOS/Linux/WSL
       ```bash
       docker build -t nubank-challenge .
       ```
-      
+
 - And then run the new created image:
-  - Windows/macOS/Linux/WSL
-    ```bash
-    docker run --rm -it nubank-challenge:latest
-    ```
-    
+    - Windows/macOS/Linux/WSL
+      ```bash
+      docker run --rm -it nubank-challenge:latest
+      ```
+
 - Insert the desired operations (example bellow):
-  - Windows/macOS/Linux/WSL
-    ```
-    [{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, "quantity": 5000}]
-    ```
-        
-### Testing 
+    - Windows/macOS/Linux/WSL
+      ```
+      [{"operation":"buy", "unit-cost":10.00, "quantity": 10000}, {"operation":"sell", "unit-cost":20.00, "quantity": 5000}]
+      ```
+
+### Testing
 
 - To run the tests just type the command bellow in terminal:
     - Windows
