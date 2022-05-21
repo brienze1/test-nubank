@@ -145,11 +145,11 @@ the command string into the application contract.
 - Run the following to install dependencies and compile the project:
     - Windows
       ```bash
-      mvnw.bat compile
+      ./mvnw.cmd clean install
       ```
     - macOS/Linux/WSL
       ```bash
-      ./mvnw compile
+      ./mvnw clean install
       ```
 
 ### Usage
@@ -172,7 +172,11 @@ the command string into the application contract.
 
 #### File Input
 - Else you can run the application using an input file:
-    - Windows/macOS/Linux/WSL
+    - Windows
+      ```bash
+      type ./src/main/resources/input.txt | java -jar ./target/nubank-challenge.jar 
+      ```
+    - macOS/Linux/WSL
       ```bash
       java -jar ./target/nubank-challenge.jar < ./src/main/resources/input.txt
       ```
@@ -201,7 +205,7 @@ the command string into the application contract.
 - To run the tests just type the command bellow in terminal:
     - Windows
       ```bash
-      mvnw.bat test
+      ./mvnw.cmd test
       ```
     - macOS/Linux/WSL
       ```bash
