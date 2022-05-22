@@ -91,18 +91,20 @@ the command string into the application contract.
 
 #### Dependencies
 
-* [Jackson Databind](https://github.com/FasterXML/jackson-databind)
+* [Jackson Databind](https://github.com/FasterXML/jackson-databind): Used to map the operation string into the
+  application contract
 
 #### Test Dependencies
 
 * [Junit4](https://github.com/junit-team/junit4): Used to run unit tests
 * [Mockito](https://github.com/mockito/mockito): Used to generate mocks used in unit tests
-* [Cucumber (Junit)](https://cucumber.io/docs/cucumber/api/#junit): Used to integrate cucumber with Junit4
+* [Cucumber (Junit)](https://cucumber.io/docs/cucumber/api/#junit): Used to integrate cucumber with Junit4 and run BDD
+  tests
 * [Cucumber (Java)](https://cucumber.io/docs/installation/java/): Used to integrate Gherkin with Java
 
 #### Plugins
 
-* [Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/): Used to compile the app
+* [Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/): Used to compile the application
 * [Maven Assembly Plugin](https://maven.apache.org/plugins/maven-assembly-plugin/): Used to generate an executable jar
 * [Maven Wrapper](https://maven.apache.org/wrapper/): Used to run mvn commands
 
