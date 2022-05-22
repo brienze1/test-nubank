@@ -114,9 +114,8 @@ the command string into the application contract.
 * [x] Implement Unit tests
 * [x] Implement application logic
 * [x] Add maven wrapper to run mvn commands locally
-* [ ] Create Dockerfile
-* [ ] Create Docker compose
-* [ ] Document everything in Readme
+* [x] Create Dockerfile
+* [x] Document everything in Readme
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
